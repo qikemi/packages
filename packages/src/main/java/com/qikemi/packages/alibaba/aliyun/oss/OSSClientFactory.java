@@ -21,7 +21,7 @@ public class OSSClientFactory {
 	 * 
 	 * @return
 	 */
-	public OSSClient createOSSClient(){
+	public static OSSClient createOSSClient(){
 		OSSClient client = new OSSClient(OSSClientProperties.key, OSSClientProperties.secret);
 		return client;
 	}
