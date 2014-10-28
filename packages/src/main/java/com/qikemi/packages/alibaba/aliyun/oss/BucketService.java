@@ -18,9 +18,9 @@ import com.aliyun.openservices.oss.model.CannedAccessControlList;
  * @Author XieXianbin<a.b@hotmail.com>
  * @Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class BucketFactory {
+public class BucketService {
 
-	private static Logger logger = Logger.getLogger(BucketFactory.class);
+	private static Logger logger = Logger.getLogger(BucketService.class);
 
 	/**
 	 * 创建一个Bucket，如果创建成功，则返回新的Bucket <br>
@@ -32,7 +32,7 @@ public class BucketFactory {
 	 * 
 	 * @return
 	 */
-	public Bucket create(OSSClient client, String bucketName) {
+	public static Bucket create(OSSClient client, String bucketName) {
 		Bucket bucket = client.createBucket(bucketName);
 		return bucket;
 	}
@@ -42,7 +42,7 @@ public class BucketFactory {
 	 * 
 	 * @return
 	 */
-	public List<Bucket> list(OSSClient client) {
+	public static List<Bucket> list(OSSClient client) {
 		List<Bucket> buckets = client.listBuckets();
 		return buckets;
 	}
@@ -54,7 +54,7 @@ public class BucketFactory {
 	 * @param bucketName
 	 * @return
 	 */
-	public boolean doesBucketExist(OSSClient client, String bucketName) {
+	public static boolean doesBucketExist(OSSClient client, String bucketName) {
 		// 获取Bucket的存在信息
 		boolean exists = client.doesBucketExist(bucketName);
 		// 输出结果
@@ -73,7 +73,7 @@ public class BucketFactory {
 	 * @param client
 	 * @param bucketName
 	 */
-	public void delete(OSSClient client, String bucketName) {
+	public static void delete(OSSClient client, String bucketName) {
 		client.deleteBucket(bucketName);
 	}
 
@@ -92,7 +92,7 @@ public class BucketFactory {
 	 * @param acl<br>
 	 * 			CannedAccessControlList是枚举类型，包含三个值： Private 、 PublicRead 、 PublicReadWrite ，它们分别对应相关权限
 	 */
-	public void setBucketAcl(OSSClient client, String bucketName, CannedAccessControlList acl) {
+	public static void setBucketAcl(OSSClient client, String bucketName, CannedAccessControlList acl) {
 		client.setBucketAcl(bucketName, acl);
 	}
 
