@@ -1,4 +1,4 @@
-package com.qikemi.packages.utils;
+package com.qikemi.packages.utils.file;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,6 +8,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import org.apache.log4j.Logger;
+
+import com.qikemi.packages.utils.validate.ObjectValidateUtil;
+
 /**
  * 文件操作 
  * 
@@ -16,6 +20,8 @@ import java.io.OutputStream;
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
 public class FileUtil {
+	
+	private static Logger logger = Logger.getLogger(FileUtil.class);
 
 	/**
 	 * 功能描述：列出某文件夹及其子文件夹下面的文件，并可根据扩展名过滤
@@ -25,7 +31,7 @@ public class FileUtil {
 	 */
 	public static void list(File path) {
 		if (!path.exists()) {
-			System.out.println("文件名称不存在!");
+			logger.error("---> The File is not exist.");
 		} else {
 			if (path.isFile()) {
 				if (path.getName().toLowerCase().endsWith(".pdf")
@@ -33,8 +39,8 @@ public class FileUtil {
 						|| path.getName().toLowerCase().endsWith(".chm")
 						|| path.getName().toLowerCase().endsWith(".html")
 						|| path.getName().toLowerCase().endsWith(".htm")) {// 文件格式
-					System.out.println(path);
-					System.out.println(path.getName());
+					logger.debug(path);
+					logger.debug(path.getName());
 				}
 			} else {
 				File[] files = path.listFiles();
@@ -46,7 +52,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * 功能描述：拷贝一个目录或者文件到指定路径下，即把源文件拷贝到目标文件路径下
+	 * 拷贝一个目录或者文件到指定路径下，即把源文件拷贝到目标文件路径下
 	 * 
 	 * @param source
 	 *            源文件
@@ -81,5 +87,16 @@ public class FileUtil {
 		}
 	}
 
-
+	/**
+	 * Return File Type Suffix 
+	 * @param fileName
+	 * @return
+	 */
+	public static String getFileSuffix(String fileName){
+		if(ObjectValidateUtil.isEmpty(fileName)){
+			return "";
+		}else{
+			return fileName.substring(fileName.lastIndexOf(".")+1);
+		}
+	}
 }

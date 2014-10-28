@@ -1,9 +1,11 @@
 package com.qikemi.packages.utils;
 
 /**
+ * 处理钱的工具类 
  * 
- * @author 
- * 2010-05-04
+ * @create date : 2014年10月28日 上午9:12:48
+ * @Author XieXianbin<a.b@hotmail.com>
+ * @Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
 public class MoneyUtil {
 

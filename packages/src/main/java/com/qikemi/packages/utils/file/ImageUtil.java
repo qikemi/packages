@@ -1,4 +1,4 @@
-﻿package com.qikemi.packages.utils;
+﻿package com.qikemi.packages.utils.file;
 
 import java.awt.Color;
 import java.awt.Component;

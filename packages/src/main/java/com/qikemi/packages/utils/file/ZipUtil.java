@@ -1,4 +1,4 @@
-package com.qikemi.packages.utils;
+package com.qikemi.packages.utils.file;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -9,7 +9,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**
- * 一个压缩工具类
+ * 文件压缩工具类
  * 
  * Create Date: 2014年10月24日 下午11:10:26
  * Author XieXianbin<a.b@hotmail.com>
@@ -27,8 +27,6 @@ public class ZipUtil {
             ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(
                     dest));
             byte data[] = new byte[BUFFER];
-            // File f= new File("d:\\111\\");
-            //   File files[] = f.listFiles();
             
             for (int i = 0; i < filename.length; i++) {
                 File file = new File(filename[i]);
@@ -53,7 +51,6 @@ public class ZipUtil {
     
     
     public static void main(String argv[]) {
-        // File f= new File("d:\\111\\");
         String[] filenames = new String[]{"E:/mnpdata/ad/temp/1209014565259/郁香.jpg"};
         zip(filenames,"c:/myfui.zip");
     }
