@@ -62,15 +62,25 @@ public class ObjectService {
 		return result;
 	}
 	
+	/**
+	 * 上传Object
+	 * @param client
+	 * @param bucketName
+	 * @param key
+	 * @param content
+	 * @return
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
 	public static PutObjectResult putObject(OSSClient client,
 			String bucketName, String key, InputStream content)
-			throws FileNotFoundException {
+			throws NumberFormatException, IOException {
 
 		// 创建上传Object的Metadata
 		ObjectMetadata meta = new ObjectMetadata();
 
 		// 必须设置ContentLength
-		meta.setContentLength(content.);
+		meta.setContentLength(Integer.parseInt(String.valueOf(content.available())));
 		// 用户自定义文件名称
 		meta.addUserMetadata("filename", key);
 
