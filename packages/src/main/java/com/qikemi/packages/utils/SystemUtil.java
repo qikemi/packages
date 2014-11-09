@@ -10,6 +10,7 @@ package com.qikemi.packages.utils;
 public class SystemUtil {
 
 	private static String rootPath = null;
+	private static String classesPath = null;
 	
 	/**
 	 * GET Project Root Path 
@@ -30,7 +31,18 @@ public class SystemUtil {
 		return rootPath;
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(getProjectRootPath());
+	/**
+	 * 获取系统编译文件的路径 
+	 * @return
+	 */
+	public static String getProjectClassesPath(){
+		if(classesPath == null){
+		    classesPath = SystemUtil.class.getClassLoader().getResource("").getPath().replaceFirst("/", "").trim();
+		}
+		return classesPath;
 	}
+	
+//	public static void main(String[] args) {
+//		System.out.println(getProjectRootPath());
+//	}
 }
