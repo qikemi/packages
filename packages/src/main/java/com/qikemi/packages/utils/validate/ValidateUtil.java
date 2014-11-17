@@ -11,7 +11,7 @@ import java.util.Set;
  * @Author XieXianbin<a.b@hotmail.com>
  * @Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class ObjectValidateUtil {
+public class ValidateUtil {
 
 	/**
 	 * 判断所传的类型是否为空或为Null
