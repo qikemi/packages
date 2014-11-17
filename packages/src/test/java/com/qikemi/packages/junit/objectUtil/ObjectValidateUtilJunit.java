@@ -5,7 +5,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.qikemi.packages.utils.validate.ObjectValidateUtil;
+import com.qikemi.packages.utils.validate.ValidateUtil;
 
 public class ObjectValidateUtilJunit {
 
@@ -22,7 +22,7 @@ public class ObjectValidateUtilJunit {
 //		System.out.println(ObjectValidateUtil.isEmpty(map));
 		Set<Object> set = new HashSet<Object>();
 		set.add("s");
-		System.out.println(ObjectValidateUtil.isEmpty(set));
+		System.out.println(ValidateUtil.isEmpty(set));
 		
 		
 		
