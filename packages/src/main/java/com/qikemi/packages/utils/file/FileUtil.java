@@ -10,7 +10,7 @@ import java.io.OutputStream;
 
 import org.apache.log4j.Logger;
 
-import com.qikemi.packages.utils.validate.ObjectValidateUtil;
+import com.qikemi.packages.utils.validate.ValidateUtil;
 
 /**
  * 文件操作 
@@ -93,7 +93,7 @@ public class FileUtil {
 	 * @return
 	 */
 	public static String getFileSuffix(String fileName){
-		if(ObjectValidateUtil.isEmpty(fileName)){
+		if(ValidateUtil.isEmpty(fileName)){
 			return "";
 		}else{
 			return fileName.substring(fileName.lastIndexOf(".")+1);
